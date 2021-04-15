@@ -1,3 +1,3 @@
 <template>
-  <div>Profile</div>
+  <div>Top Shows</div>
 </template>
