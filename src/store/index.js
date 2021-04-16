@@ -17,6 +17,8 @@ export default createStore({
     return {
       homeMovieList: [],
       currentPage: null,
+      selectedMovie: {},
+      recommends: [],
     };
   },
   mutations,

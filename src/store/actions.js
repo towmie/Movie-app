@@ -5,10 +5,23 @@ export default {
     const response = await fetch(
       `https://yts.mx/api/v2/list_movies.json?page=${payload}`
     );
-    const data = await response.json();
-    context.commit("getMovieList", data);
+    const respData = await response.json();
+    const { data } = respData;
+    const newData = {
+      ...data.movies,
+      currentPage: payload,
+    };
+    context.commit("getMovieList", newData);
   },
-  searchInput(_, payload) {
-    console.log(payload);
+  selectedMovie(context, payload) {
+    context.commit("selectedMovie", payload);
+  },
+  async renderRecommends(context, payload) {
+    const resp = await fetch(
+      `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${payload}`
+    );
+    const { data } = await resp.json();
+
+    context.commit("renderRecommends", data.movies);
   },
 };

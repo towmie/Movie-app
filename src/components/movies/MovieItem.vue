@@ -7,23 +7,55 @@
         <span class="rating">{{ rating }}</span>
         <p class="title">{{ title }}</p>
       </div>
-      <a href="" class="info">Show Info</a>
+      <router-link
+        :to="movieUrl"
+        name="details"
+        class="info"
+        @click="chooseSelectedMovie"
+        >Show Info</router-link
+      >
     </div>
   </li>
 </template>
 
 <script>
 export default {
-  props: ["title", "id", "cover", "genres", "year", "desc", "rating"],
+  props: [
+    "title",
+    "id",
+    "cover",
+    "genres",
+    "year",
+    "desc",
+    "rating",
+    "currentPage",
+  ],
 
   computed: {
     bgImg() {
       return `background-image: url(${this.cover})`;
     },
+    movieUrl() {
+      return "/" + this.id;
+    },
   },
+
   methods: {
     addToWhishlist() {
       this.$store.dispatch("wishlist/addToWhishlist", {
+        id: this.id,
+        title: this.title,
+        cover: this.cover,
+        genres: this.genres,
+        desc: this.desc,
+        rating: this.rating,
+        year: this.year,
+      });
+    },
+
+    chooseSelectedMovie() {
+      this.$store.dispatch("selectedMovie", {
+        currentPage: this.currentPage,
         id: this.id,
         title: this.title,
         cover: this.cover,

@@ -1,7 +1,14 @@
 "use strict";
 
 export default {
-  getMovieList(state, { data }) {
-    state.homeMovieList = data.movies;
+  getMovieList(state, payload) {
+    state.homeMovieList = payload;
+  },
+  selectedMovie(state, payload) {
+    state.selectedMovie = payload;
+  },
+
+  renderRecommends(state, payload) {
+    state.recommends = payload;
   },
 };
