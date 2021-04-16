@@ -16,6 +16,7 @@ export default createStore({
   state() {
     return {
       homeMovieList: [],
+      currentPage: null,
     };
   },
   mutations,

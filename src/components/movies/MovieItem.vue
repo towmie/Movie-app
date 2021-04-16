@@ -15,6 +15,7 @@
 <script>
 export default {
   props: ["title", "id", "cover", "genres", "year", "desc", "rating"],
+
   computed: {
     bgImg() {
       return `background-image: url(${this.cover})`;
