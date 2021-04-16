@@ -6,7 +6,10 @@
       <button class="next" @click="nextPage"></button>
     </div>
   </div>
-  <div><MovieList /></div>
+  <div v-if="isLoading">
+    <base-spinner></base-spinner>
+  </div>
+  <div v-else><MovieList /></div>
 </template>
 
 <script>
@@ -16,25 +19,33 @@ export default {
   data() {
     return {
       currentPage: 1,
+      isLoading: false,
     };
   },
-  created() {
-    this.$store.dispatch("getMovieList", this.currentPage);
+  async created() {
+    this.isLoading = true;
+    await this.$store.dispatch("getMovieList", this.currentPage);
+    this.isLoading = false;
   },
   methods: {
-    nextPage() {
+    async nextPage() {
+      this.isLoading = true;
+
       this.currentPage++;
-      console.log(this.currentPage);
-      this.$store.dispatch("getMovieList", this.currentPage);
+      await this.$store.dispatch("getMovieList", this.currentPage);
+      this.isLoading = false;
     },
 
-    prevPage() {
+    async prevPage() {
+      this.isLoading = true;
+
       if (this.currentPage > 1) {
         this.currentPage--;
       } else {
         return;
       }
-      this.$store.dispatch("getMovieList", this.currentPage);
+      await this.$store.dispatch("getMovieList", this.currentPage);
+      this.isLoading = false;
     },
   },
 };

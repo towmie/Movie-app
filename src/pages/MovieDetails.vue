@@ -23,7 +23,10 @@
   </div>
   <div>
     <h2>You Also Might Like</h2>
-    <ul class="list">
+    <div v-if="isLoading">
+      <base-spinner></base-spinner>
+    </div>
+    <ul class="list" v-else>
       <movie-item
         v-for="movie of recommends"
         :key="movie.id"
@@ -44,12 +47,21 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
-  created() {
-    this.$store.dispatch("renderRecommends", this.movie.id);
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+  async created() {
+    this.isLoading = true;
+    await this.$store.dispatch("renderRecommends", this.movie.id);
+    this.isLoading = false;
   },
   watch: {
-    movie: function (movie) {
-      this.$store.dispatch("renderRecommends", movie.id);
+    movie: async function (movie) {
+      this.isLoading = true;
+      await this.$store.dispatch("renderRecommends", movie.id);
+      this.isLoading = false;
     },
   },
 
