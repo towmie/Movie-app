@@ -47,6 +47,11 @@ export default {
   created() {
     this.$store.dispatch("renderRecommends", this.movie.id);
   },
+  watch: {
+    movie: function (movie) {
+      this.$store.dispatch("renderRecommends", movie.id);
+    },
+  },
 
   computed: {
     movie() {
@@ -75,6 +80,7 @@ export default {
 }
 .img {
   width: 300px;
+  max-height: 500px;
 }
 p {
   font-size: 15px;
