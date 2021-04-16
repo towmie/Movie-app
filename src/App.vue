@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <aside-menu class="left"></aside-menu>
-    <router-view class="main"></router-view>
+    <div class="main-info">
+      <router-view></router-view>
+    </div>
     <right-widgets class="right"></right-widgets>
   </div>
 </template>
@@ -29,7 +31,6 @@ body {
   font-weight: 400;
   background-blend-mode: lighten;
   position: relative;
-  background-color: #ccc;
 }
 
 h1,
@@ -63,7 +64,9 @@ ul {
   width: 450px;
   background-color: #fff;
 }
-.main {
+.main-info {
   width: 100%;
+  border-right: 2px solid rgba(163, 163, 163, 0.3);
+  border-left: 2px solid rgba(163, 163, 163, 0.3);
 }
 </style>

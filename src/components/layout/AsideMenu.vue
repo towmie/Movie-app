@@ -23,10 +23,20 @@ export default {};
 </script>
 
 <style scoped>
+h3 {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(53, 53, 53);
+}
 .menu-wrapper {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+}
+.menu-wrapper a {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-left: 20px;
 }
 .logo-link {
   display: inline-block;
@@ -47,7 +57,6 @@ export default {};
   background-position: center;
 }
 .nav {
-  border-right: 2px solid rgb(71, 71, 71);
   padding: 20px;
 }
 </style>
