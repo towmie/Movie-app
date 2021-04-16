@@ -70,7 +70,6 @@ export default {
       return this.$store.getters.getSelectedMovie;
     },
     recommends() {
-      console.log(this.$store.getters.getRecommends);
       return this.$store.getters.getRecommends;
     },
   },
@@ -92,7 +91,7 @@ export default {
 }
 .img {
   width: 300px;
-  max-height: 500px;
+  max-height: 400px;
 }
 p {
   font-size: 15px;

@@ -23,7 +23,9 @@ export default {
   components: { MovieItem },
   computed: {
     movieList() {
-      return this.$store.getters.getMovieList;
+      const resceived = this.$store.getters.getMovieList;
+      delete resceived.currentPage;
+      return resceived;
     },
   },
 };

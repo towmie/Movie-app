@@ -1,3 +1,4 @@
+"use strict";
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "./../pages/Home";
 import TopMovies from "./../pages/TopMovies";
@@ -23,6 +24,11 @@ const router = createRouter({
       props: true,
     },
   ],
+  linkActiveClass: "active",
+  scrollBehavior(_, _2, savedPosition) {
+    if (savedPosition) return savedPosition;
+    return { top: 0, left: 0 };
+  },
 });
 
 export default router;

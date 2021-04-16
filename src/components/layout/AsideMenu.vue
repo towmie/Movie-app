@@ -33,6 +33,9 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+.active {
+  border-bottom: 1px solid #000;
+}
 .menu-wrapper a {
   display: inline-block;
   margin-bottom: 10px;
