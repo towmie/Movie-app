@@ -1,6 +1,6 @@
 <template>
   <li class="card" :style="bgImg">
-    <button class="wishlist"></button>
+    <button class="wishlist" @click="addToWhishlist"></button>
     <div class="bg"></div>
     <div class="wrapper">
       <div class="top">
@@ -18,6 +18,19 @@ export default {
   computed: {
     bgImg() {
       return `background-image: url(${this.cover})`;
+    },
+  },
+  methods: {
+    addToWhishlist() {
+      this.$store.dispatch("wishlist/addToWhishlist", {
+        id: this.id,
+        title: this.title,
+        cover: this.cover,
+        genres: this.genres,
+        desc: this.desc,
+        rating: this.rating,
+        year: this.year,
+      });
     },
   },
 };
