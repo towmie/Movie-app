@@ -13,6 +13,9 @@
         >
         <router-link to="/wishlist" class="wishlist">Wishlist</router-link>
         <router-link to="/profile" class="profile">Profile</router-link>
+        <h3>DO CATEGORIES</h3>
+        <h3>Alredy in alert</h3>
+        <h3>Do base movie item and add - btn in whish list</h3>
       </div>
     </div>
   </div>

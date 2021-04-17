@@ -7,7 +7,11 @@ function saveToLS(list) {
 
 export default {
   addToWhishlist(state, payload) {
-    state.moviesLocal.unshift(payload);
+    const id = payload.id;
+    const alreadyIn = state.moviesLocal.find((mov) => mov.id === id);
+
+    alreadyIn ? console.log("already in") : state.moviesLocal.unshift(payload);
+
     saveToLS(state.moviesLocal);
   },
 };
