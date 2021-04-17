@@ -34,4 +34,12 @@ export default {
     const { data } = await resp.json();
     context.commit("showCat", data.movies);
   },
+
+  async movieDetails(context, payload) {
+    const resp = await fetch(
+      `https://yts.mx/api/v2/movie_details.json?movie_id=${payload}`
+    );
+    const { data } = await resp.json();
+    context.commit("movieDetails", data.movie);
+  },
 };

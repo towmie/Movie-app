@@ -1,45 +1,47 @@
 <template>
-  <div class="details">
-    <img class="img" :src="movie.cover" alt="" />
-    <div class="movie-info">
-      <h2 class="title">{{ movie.title }}</h2>
-      <p>
-        Rating: <span class="rating">{{ movie.rating }}</span>
-      </p>
-      <p>
-        Year:
-        <span class="year">{{ movie.year }}</span>
-      </p>
-      <p>
-        Description: <br />
-        <span class="desc">{{ movie.desc }}</span>
-      </p>
-      <p>
-        <span class="genres" v-for="gerne of movie.genres" :key="gerne">{{
-          gerne
-        }}</span>
-      </p>
-    </div>
+  <div v-if="isLoading">
+    <base-spinner></base-spinner>
   </div>
-  <div>
-    <h2>You Also Might Like</h2>
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
+  <div v-else>
+    <div class="details">
+      <img class="img" :src="details.large_cover_image" alt="" />
+      <div class="movie-info">
+        <h2 class="title">{{ details.title_english }}</h2>
+        <p>
+          Rating: <span class="rating">{{ details.rating }}</span>
+        </p>
+        <p>
+          Year:
+          <span class="year">{{ details.year }}</span>
+        </p>
+        <p>
+          Description: <br />
+          <span class="desc">{{ details.description_full }}</span>
+        </p>
+        <p>
+          <span class="genres" v-for="gerne of details.genres" :key="gerne">{{
+            gerne
+          }}</span>
+        </p>
+      </div>
     </div>
-    <ul class="list" v-else>
-      <movie-item
-        v-for="movie of recommends"
-        :key="movie.id"
-        :id="movie.id"
-        :title="movie.title_english"
-        :idImdb="movie.imdb_code"
-        :desc="movie.description_full"
-        :year="movie.year"
-        :cover="movie.medium_cover_image"
-        :rating="movie.rating"
-        :genres="movie.genres"
-      ></movie-item>
-    </ul>
+    <div>
+      <h2>You Also Might Like</h2>
+      <ul class="list">
+        <movie-item
+          v-for="movie of recommends"
+          :key="movie.id"
+          :id="movie.id"
+          :title="movie.title_english"
+          :idImdb="movie.imdb_code"
+          :desc="movie.description_full"
+          :year="movie.year"
+          :cover="movie.medium_cover_image"
+          :rating="movie.rating"
+          :genres="movie.genres"
+        ></movie-item>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -49,28 +51,30 @@ export default {
   components: { MovieItem },
   data() {
     return {
+      details: {},
+      recommends: "",
       isLoading: false,
+      filmId: null,
     };
   },
   async created() {
     this.isLoading = true;
-    await this.$store.dispatch("renderRecommends", this.movie.id);
+    await this.$store.dispatch("movieDetails", this.$route.params.movieId);
+    this.details = this.$store.getters.getMovieDetails;
+    this.filmId = this.$route.params.movieId;
+    await this.$store.dispatch("renderRecommends", this.filmId);
+    this.recommends = this.$store.getters.getRecommends;
     this.isLoading = false;
   },
   watch: {
-    movie: async function (movie) {
+    async $route(newRoute) {
       this.isLoading = true;
-      await this.$store.dispatch("renderRecommends", movie.id);
+      await this.$store.dispatch("movieDetails", newRoute.params.movieId);
+      this.details = this.$store.getters.getMovieDetails;
+      this.filmId = newRoute.params.movieId;
+      await this.$store.dispatch("renderRecommends", this.filmId);
+      this.recommends = this.$store.getters.getRecommends;
       this.isLoading = false;
-    },
-  },
-
-  computed: {
-    movie() {
-      return this.$store.getters.getSelectedMovie;
-    },
-    recommends() {
-      return this.$store.getters.getRecommends;
     },
   },
 };

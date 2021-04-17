@@ -1,12 +1,14 @@
 <template>
-  <div>category</div>
-  <ul>
-    <category-item
-      v-for="category in categories"
-      :key="category"
-      :category="category"
-    ></category-item>
-  </ul>
+  <div @click="showCat">category</div>
+  <transition name="fade">
+    <ul v-if="isOpend">
+      <category-item
+        v-for="category in categories"
+        :key="category"
+        :category="category"
+      ></category-item>
+    </ul>
+  </transition>
 </template>
 
 <script>
@@ -15,6 +17,7 @@ export default {
   components: { CategoryItem },
   data() {
     return {
+      isOpend: false,
       categories: [
         "Action",
         "Thriller",
@@ -32,7 +35,21 @@ export default {
       ],
     };
   },
+  methods: {
+    showCat() {
+      this.isOpend = !this.isOpend;
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

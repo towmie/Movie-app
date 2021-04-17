@@ -14,6 +14,10 @@ export default {
 
   showCat(state, payload) {
     state.catMovieList = payload;
-    console.log(state.catMovieList);
+  },
+
+  movieDetails(state, payload) {
+    state.movieDetails = payload;
+    console.log(state.movieDetails);
   },
 };

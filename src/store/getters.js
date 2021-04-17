@@ -14,4 +14,7 @@ export default {
   getCategories(state) {
     return state.catMovieList;
   },
+  getMovieDetails(state) {
+    return state.movieDetails;
+  },
 };

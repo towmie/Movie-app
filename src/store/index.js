@@ -20,6 +20,7 @@ export default createStore({
       selectedMovie: {},
       recommends: [],
       catMovieList: [],
+      movieDetails: {},
     };
   },
   mutations,
