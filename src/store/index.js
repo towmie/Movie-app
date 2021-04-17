@@ -1,6 +1,6 @@
 "use strict";
 import { createStore } from "vuex";
-import toplistmovies from "./modules/toplistmovies/index";
+import searchedmovies from "./modules/searchedmovies/index";
 import toplistserials from "./modules/toplistserials/index";
 import watchlist from "./modules/watchlist/index";
 import mutations from "./mutations";
@@ -9,7 +9,7 @@ import getters from "./getters";
 
 export default createStore({
   modules: {
-    topMovie: toplistmovies,
+    searchedFilm: searchedmovies,
     topSerial: toplistserials,
     wishlist: watchlist,
   },
@@ -19,6 +19,7 @@ export default createStore({
       currentPage: null,
       selectedMovie: {},
       recommends: [],
+      catMovieList: [],
     };
   },
   mutations,

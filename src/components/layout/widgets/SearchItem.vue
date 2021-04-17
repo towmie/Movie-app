@@ -1,8 +1,8 @@
 <template>
-  <div class="input-wrapper">
+  <form @submit.prevent="searchFilm" class="input-wrapper">
     <input class="search-input" v-model="searchedFilm" placeholder="Search" />
-    <button class="serach-btn" @submit="serach"></button>
-  </div>
+    <button class="serach-btn" type="submit"></button>
+  </form>
 </template>
 
 <script>
@@ -14,14 +14,11 @@ export default {
   },
 
   methods: {
-    search() {
-      //   console.log(this.searchedFilm);
-      //   this.$store.dispatch("searchInput", this.searchedFilm);
+    async searchFilm() {
+      this.$router.replace("/search");
+      await this.$store.dispatch("searchedFilm/searchMovie", this.searchedFilm);
+      this.searchedFilm = "";
     },
-
-    // moveToSearch() {
-    //   this.$router.push("/serch");
-    // },
   },
 };
 </script>

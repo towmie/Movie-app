@@ -11,4 +11,9 @@ export default {
   renderRecommends(state, payload) {
     state.recommends = payload;
   },
+
+  showCat(state, payload) {
+    state.catMovieList = payload;
+    console.log(state.catMovieList);
+  },
 };

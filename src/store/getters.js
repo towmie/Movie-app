@@ -11,4 +11,7 @@ export default {
   getRecommends(state) {
     return state.recommends;
   },
+  getCategories(state) {
+    return state.catMovieList;
+  },
 };

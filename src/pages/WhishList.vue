@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="list">
+    <ul class="list" @click="show">
       <movie-item
         v-for="movie of wishList"
         :key="movie.id"
@@ -12,6 +12,7 @@
         :cover="movie.cover"
         :rating="movie.rating"
         :genres="movie.genres"
+        :delete-from-wl="true"
       ></movie-item>
     </ul>
   </div>
@@ -21,8 +22,10 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
+
   computed: {
     wishList() {
+      // return this.$store.getters["wishlist/getWidgetWishList"];
       return JSON.parse(localStorage.getItem("movies"));
     },
   },
@@ -32,7 +35,6 @@ export default {
 <style scoped>
 .list {
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 </style>

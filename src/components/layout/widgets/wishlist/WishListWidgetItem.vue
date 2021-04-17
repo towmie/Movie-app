@@ -36,7 +36,7 @@ export default {
   flex-wrap: wrap;
 }
 .title {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .sub {
   font-size: 10px;

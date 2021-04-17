@@ -14,4 +14,10 @@ export default {
 
     saveToLS(state.moviesLocal);
   },
+
+  deleteFromWhishlist(state, payload) {
+    state.moviesLocal = state.moviesLocal.filter((mov) => mov.id !== payload);
+
+    saveToLS(state.moviesLocal);
+  },
 };

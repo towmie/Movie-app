@@ -5,24 +5,21 @@
       <h3>Menu</h3>
       <div class="menu-wrapper">
         <router-link to="/" class="home">Home</router-link>
-        <router-link to="/top-movies" class="/top-movs"
-          >Top 20 Movies</router-link
-        >
-        <router-link to="/top-shows" class="top-show"
-          >Top 20 Tv Shows</router-link
-        >
-        <router-link to="/wishlist" class="wishlist">Wishlist</router-link>
         <router-link to="/profile" class="profile">Profile</router-link>
-        <h3>DO CATEGORIES</h3>
-        <h3>Alredy in alert</h3>
-        <h3>Do base movie item and add - btn in whish list</h3>
+        <router-link to="/wishlist" class="wishlist">Wishlist</router-link>
+        <category-list></category-list>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import CategoryList from "./CategoryList";
+export default {
+  components: {
+    CategoryList,
+  },
+};
 </script>
 
 <style scoped>

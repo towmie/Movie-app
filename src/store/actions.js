@@ -26,4 +26,12 @@ export default {
 
     context.commit("renderRecommends", data.movies);
   },
+
+  async showCat(context, payload) {
+    const resp = await fetch(
+      `https://yts.mx/api/v2/list_movies.json?genre=${payload}&limit=50`
+    );
+    const { data } = await resp.json();
+    context.commit("showCat", data.movies);
+  },
 };

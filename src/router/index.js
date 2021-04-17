@@ -1,24 +1,22 @@
 "use strict";
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "./../pages/Home";
-import TopMovies from "./../pages/TopMovies";
-import TopShows from "./../pages/TopShows";
 import Profile from "./../pages/Profile";
 import WhishList from "./../pages/WhishList";
 import SearchPage from "./../pages/SearchPage";
 import MovieDetails from "./../pages/MovieDetails";
+import CategoryPage from "./../pages/CategoryPage";
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     { path: "/", component: Home, name: "home" },
-    { path: "/top-shows", component: TopShows, name: "top-shows" },
-    { path: "/top-movies", component: TopMovies, name: "top-movies" },
-    { path: "/serch", component: SearchPage, name: "search" },
+    { path: "/search", component: SearchPage, name: "search" },
     { path: "/wishlist", component: WhishList, name: "wishlist" },
     { path: "/profile", component: Profile, name: "profile" },
+    { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
-      path: "/:movieId",
+      path: "/details/:movieId",
       component: MovieDetails,
       name: "details",
       props: true,

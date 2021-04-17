@@ -1,6 +1,11 @@
 <template>
   <li class="card" :style="bgImg">
-    <button class="wishlist" @click="addToWhishlist"></button>
+    <button
+      v-if="!deleteFromWl"
+      class="wishlist"
+      @click="addToWhishlist"
+    ></button>
+    <button v-else class="del-wishlist" @click="deleteFromWhishlist"></button>
     <div class="bg"></div>
     <div class="wrapper">
       <div class="top">
@@ -29,6 +34,7 @@ export default {
     "desc",
     "rating",
     "currentPage",
+    "deleteFromWl",
   ],
 
   computed: {
@@ -36,7 +42,7 @@ export default {
       return `background-image: url(${this.cover})`;
     },
     movieUrl() {
-      return "/" + this.id;
+      return "/details/" + this.id;
     },
   },
 
@@ -51,6 +57,10 @@ export default {
         rating: this.rating,
         year: this.year,
       });
+    },
+
+    deleteFromWhishlist() {
+      this.$store.dispatch("wishlist/deleteFromWhishlist", this.id);
     },
 
     chooseSelectedMovie() {
@@ -81,8 +91,12 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
 }
-
-.wishlist {
+.default-img {
+  width: 100%;
+  z-index: -1;
+}
+.wishlist,
+.del-wishlist {
   position: absolute;
   z-index: 13;
   top: 10px;
@@ -95,10 +109,16 @@ export default {
   border-radius: 1px;
   background-color: #454547;
   opacity: 0.9;
-  background-image: url(./../../assets/icons/add.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
+}
+
+.wishlist {
+  background-image: url(./../../assets/icons/add.svg);
+}
+.del-wishlist {
+  background-image: url(./../../assets/icons/minus.svg);
 }
 .wrapper {
   position: relative;

@@ -12,6 +12,7 @@
       :rating="movie.rating"
       :genres="movie.genres"
       :current-page="movieList.currentPage"
+      :delete-from-wl="false"
     ></movie-item>
   </ul>
 </template>
@@ -34,7 +35,6 @@ export default {
 <style scoped>
 .list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 </style>
