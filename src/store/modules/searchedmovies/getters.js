@@ -5,7 +5,10 @@ export default {
     return state.searchedMovies;
   },
   getIsLoading(state) {
-    console.log(state.isLoading);
     return state.isLoading;
+  },
+
+  getSearchedInput(state) {
+    return state.searchedInput;
   },
 };

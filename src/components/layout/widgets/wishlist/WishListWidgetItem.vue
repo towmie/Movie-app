@@ -1,14 +1,18 @@
 <template>
   <div class="item">
-    <img class="img" :src="cover" alt="" />
+    <router-link :to="movieUrl">
+      <img class="img" :src="cover" alt=""
+    /></router-link>
     <div class="info-box">
-      <h4 class="title">{{ title }}</h4>
+      <router-link :to="movieUrl" class="title">{{ title }}</router-link>
       <div class="gernes-box">
         <span class="genres" v-for="genre of genres" :key="genre">{{
           genre
         }}</span>
       </div>
-      <span class="rating"><span class="sub">rating: </span>{{ rating }}</span>
+      <span class="rating"
+        >Rating: <span class="sub">{{ rating }}</span></span
+      >
     </div>
   </div>
 </template>
@@ -16,6 +20,11 @@
 <script>
 export default {
   props: ["title", "cover", "id", "genres", "rating"],
+  computed: {
+    movieUrl() {
+      return "/details/" + this.id;
+    },
+  },
 };
 </script>
 
@@ -25,7 +34,10 @@ export default {
 }
 .item {
   display: flex;
-  margin-bottom: 10px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(204, 203, 203);
+  margin-bottom: 5px;
 }
 .img {
   width: 70px;
@@ -35,19 +47,28 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
-.title {
-  margin-bottom: 10px;
-}
-.sub {
+.rating {
   font-size: 10px;
 }
+.sub {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e71c60;
+}
+.title {
+  display: block;
+  font-weight: 700;
+  color: #e71c60;
+  margin-bottom: 10px;
+}
+
 .genres {
   position: relative;
   margin-right: 8px;
   margin-bottom: 5px;
   font-size: 12px;
   color: #fff;
-  background-color: rgb(214, 213, 213);
+  background-color: rgb(179, 178, 178);
   padding: 3px;
   border-radius: 4px;
 }

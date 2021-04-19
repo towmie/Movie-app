@@ -21,5 +21,11 @@ export default {
 <style scoped>
 a {
   display: block;
+  margin: 10px 0;
+  padding-left: 30px;
+  color: rgb(110, 110, 110);
+}
+a:hover {
+  color: rgb(68, 68, 68);
 }
 </style>

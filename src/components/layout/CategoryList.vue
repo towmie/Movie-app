@@ -1,14 +1,19 @@
 <template>
-  <div @click="showCat">category</div>
-  <transition name="fade">
-    <ul v-if="isOpend">
-      <category-item
-        v-for="category in categories"
-        :key="category"
-        :category="category"
-      ></category-item>
-    </ul>
-  </transition>
+  <div class="wrapper">
+    <div @click="showCat">
+      <img class="icon" src="./../../assets/icons/video.svg" />
+      <span class="title">Category</span>
+    </div>
+    <transition name="fade">
+      <ul v-if="isOpend">
+        <category-item
+          v-for="category in categories"
+          :key="category"
+          :category="category"
+        ></category-item>
+      </ul>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -51,5 +56,19 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  z-index: 100;
+}
+.title {
+  padding-left: 10px;
+  font-weight: 700;
+  color: rgb(53, 53, 53);
 }
 </style>

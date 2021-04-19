@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h3>WishList</h3>
-    <p v-if="isNotEmpty">now movies in wishlist</p>
+    <h3 class="heading">WishList:</h3>
+    <p v-if="isNotEmpty">
+      You have added no movies yet<br />
+      <span>*press + on the movie card to add the movie to the whishlist</span>
+    </p>
     <ul v-else class="list">
       <wish-list-widget-item
         v-for="movie of localMovies"
@@ -14,7 +17,7 @@
       ></wish-list-widget-item>
     </ul>
     <router-link v-if="isMoreThenFour" to="/wishlist" class="info"
-      >Show More</router-link
+      >Show All</router-link
     >
   </div>
 </template>
@@ -50,8 +53,24 @@ export default {
 
 <style scoped>
 .list {
-  max-height: 330px;
+  max-height: 345px;
   overflow-y: hidden;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #353535;
+}
+p span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.heading {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #e71c60;
+  font-weight: 700;
 }
 .info {
   margin-top: auto;

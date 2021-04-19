@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2 class="title">Your WishList:</h2>
     <ul class="list" @click="show">
       <movie-item
         v-for="movie of wishList"
@@ -33,6 +34,21 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+}
+.title span {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #e71c60;
+}
 .list {
   display: flex;
   flex-wrap: wrap;

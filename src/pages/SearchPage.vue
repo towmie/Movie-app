@@ -1,7 +1,7 @@
 <template>
-  <!-- <div v-if="isLoading">
-    <base-spinner></base-spinner>
-  </div> -->
+  <h2 class="title">
+    Search Results: <span>{{ searchedInput }}</span>
+  </h2>
   <ul class="list">
     <movie-item
       v-for="movie of serchedMovieList"
@@ -23,22 +23,41 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
-  // data() {
-  //   return {
-  //     isLoading: true,
-  //     searched: null,
-  //   };
-  // },
+  data() {
+    return {
+      isLoading: true,
+      searched: null,
+    };
+  },
 
   computed: {
     serchedMovieList() {
       return this.$store.getters["searchedFilm/getSearchedMovies"];
+    },
+
+    searchedInput() {
+      return this.$store.getters["searchedFilm/getSearchedInput"];
     },
   },
 };
 </script>
 
 <style scoped>
+.title {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+}
+.title span {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #e71c60;
+}
 .list {
   display: flex;
   flex-wrap: wrap;

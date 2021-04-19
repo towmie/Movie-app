@@ -1,6 +1,6 @@
 <template>
   <div class="btn">
-    <h3>Home</h3>
+    <h2 class="title">Home:</h2>
     <div class="btn-wrapper">
       <button class="prev" @click="prevPage"></button>
       <button class="next" @click="nextPage"></button>
@@ -52,12 +52,21 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
+}
 .btn {
-  margin: 10px 0;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
 }
 .btn-wrapper {
   margin-left: auto;

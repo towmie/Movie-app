@@ -9,6 +9,7 @@ export default {
     return {
       searchedMovies: [],
       isLoading: true,
+      searchedInput: "",
     };
   },
   actions,

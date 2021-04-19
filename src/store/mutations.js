@@ -18,6 +18,5 @@ export default {
 
   movieDetails(state, payload) {
     state.movieDetails = payload;
-    console.log(state.movieDetails);
   },
 };

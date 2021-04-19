@@ -17,6 +17,7 @@ export default {
     async searchFilm() {
       this.$router.replace("/search");
       await this.$store.dispatch("searchedFilm/searchMovie", this.searchedFilm);
+      this.$store.dispatch("searchedFilm/searchInput", this.searchedFilm);
       this.searchedFilm = "";
     },
   },
@@ -32,16 +33,15 @@ export default {
   margin-right: 10px;
   margin: 0 auto;
   margin-bottom: 20px;
+  margin-top: 20px;
   display: block;
 }
-.input-wrapper {
-  position: relative;
-}
+
 .serach-btn {
   position: absolute;
   cursor: pointer;
-  right: 55px;
-  top: 7px;
+  right: 65px;
+  top: 36px;
   border: none;
   background-color: transparent;
   background-image: url(./../../../assets/icons/search.svg);

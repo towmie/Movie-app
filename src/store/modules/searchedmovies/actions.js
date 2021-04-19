@@ -10,4 +10,8 @@ export default {
 
     context.commit("searchMovie", data.movies);
   },
+
+  searchInput(context, payload) {
+    context.commit("searchInput", payload);
+  },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>Top Rated</div>
+  <div></div>
 </template>
 
 <script>

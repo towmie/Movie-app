@@ -3,7 +3,9 @@
     <base-spinner></base-spinner>
   </div>
   <div v-else>
-    <div>category: {{ category }}</div>
+    <h2 class="title">
+      Category: <span>{{ category }}</span>
+    </h2>
     <ul class="list">
       <movie-item
         v-for="movie of categoryList"
@@ -55,6 +57,21 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+}
+.title span {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #e71c60;
+}
 .list {
   display: flex;
   flex-wrap: wrap;
