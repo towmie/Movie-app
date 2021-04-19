@@ -100,7 +100,7 @@ export default {
 
 <style scoped>
 .modal {
-  position: absolute;
+  position: fixed;
   top: 40px;
   right: 40px;
   min-width: 100px;

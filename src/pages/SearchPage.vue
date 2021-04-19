@@ -2,20 +2,26 @@
   <h2 class="title">
     Search Results: <span>{{ searchedInput }}</span>
   </h2>
-  <ul class="list">
-    <movie-item
-      v-for="movie of serchedMovieList"
-      :key="movie.id"
-      :id="movie.id"
-      :title="movie.title_english"
-      :desc="movie.description_full"
-      :year="movie.year"
-      :cover="movie.large_cover_image"
-      :rating="movie.rating"
-      :genres="movie.genres"
-      :delete-from-wl="false"
-    ></movie-item>
-  </ul>
+  <div v-if="isLoading">
+    <base-spinner></base-spinner>
+  </div>
+  <div class="wrapper" v-else>
+    <p v-if="!movieIsFound" class="error">Nothing is Found:(</p>
+    <ul class="list" v-else>
+      <movie-item
+        v-for="movie of serchedMovieList"
+        :key="movie.id"
+        :id="movie.id"
+        :title="movie.title_english"
+        :desc="movie.description_full"
+        :year="movie.year"
+        :cover="movie.large_cover_image"
+        :rating="movie.rating"
+        :genres="movie.genres"
+        :delete-from-wl="false"
+      ></movie-item>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -26,7 +32,16 @@ export default {
     return {
       isLoading: true,
       searched: null,
+      movieIsFound: null,
     };
+  },
+  watch: {
+    serchedMovieList() {
+      this.isLoading = false;
+      this.serchedMovieList
+        ? (this.movieIsFound = true)
+        : (this.movieIsFound = false);
+    },
   },
 
   computed: {
@@ -56,6 +71,11 @@ export default {
   text-transform: uppercase;
   font-size: 22px;
   color: #e71c60;
+}
+.error {
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 700;
 }
 .list {
   display: flex;

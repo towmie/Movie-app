@@ -16,7 +16,15 @@ export default {
   methods: {
     async searchFilm() {
       this.$router.replace("/search");
-      await this.$store.dispatch("searchedFilm/searchMovie", this.searchedFilm);
+      try {
+        await this.$store.dispatch(
+          "searchedFilm/searchMovie",
+          this.searchedFilm
+        );
+      } catch (err) {
+        console.log("ERRROOORRR");
+      }
+
       this.$store.dispatch("searchedFilm/searchInput", this.searchedFilm);
       this.searchedFilm = "";
     },
