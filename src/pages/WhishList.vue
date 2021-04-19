@@ -7,7 +7,6 @@
         :key="movie.id"
         :id="movie.id"
         :title="movie.title"
-        :idImdb="movie.imdb_code"
         :desc="movie.desc"
         :year="movie.year"
         :cover="movie.cover"

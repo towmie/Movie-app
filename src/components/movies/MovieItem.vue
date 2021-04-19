@@ -1,4 +1,8 @@
 <template>
+  <teleport to="body" v-if="isAlreadyIn">
+    <div class="modal warning">This Movie Is Alredy in WishList</div>
+  </teleport>
+
   <li class="card" :style="bgImg">
     <button
       v-if="!deleteFromWl"
@@ -24,7 +28,9 @@
 </template>
 
 <script>
+// import BaseNotification from "../UI/BaseNotification.vue";
 export default {
+  // components: { BaseNotification },
   props: [
     "title",
     "id",
@@ -36,6 +42,11 @@ export default {
     "currentPage",
     "deleteFromWl",
   ],
+  data() {
+    return {
+      isAlreadyIn: false,
+    };
+  },
 
   computed: {
     bgImg() {
@@ -48,15 +59,23 @@ export default {
 
   methods: {
     addToWhishlist() {
-      this.$store.dispatch("wishlist/addToWhishlist", {
-        id: this.id,
-        title: this.title,
-        cover: this.cover,
-        genres: this.genres,
-        desc: this.desc,
-        rating: this.rating,
-        year: this.year,
-      });
+      const list = this.$store.getters["wishlist/getWishList"];
+      if (!list.find((el) => el.id === this.id)) {
+        this.$store.dispatch("wishlist/addToWhishlist", {
+          id: this.id,
+          title: this.title,
+          cover: this.cover,
+          genres: this.genres,
+          desc: this.desc,
+          rating: this.rating,
+          year: this.year,
+        });
+      } else {
+        this.isAlreadyIn = true;
+        setTimeout(() => {
+          this.isAlreadyIn = false;
+        }, 2000);
+      }
     },
 
     deleteFromWhishlist() {
@@ -80,6 +99,18 @@ export default {
 </script>
 
 <style scoped>
+.modal {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  min-width: 100px;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+.warning {
+  background-color: rgb(173, 127, 1);
+}
 .card {
   position: relative;
   width: 170px;
