@@ -25,8 +25,8 @@
         </p>
       </div>
     </div>
-    <div>
-      <h2>You Also Might Like</h2>
+    <div class="recommends">
+      <h2 class="recommends__heading">You Also Might Like</h2>
       <ul class="list">
         <movie-item
           v-for="movie of recommends"
@@ -83,14 +83,32 @@ export default {
 .details {
   padding: 20px;
   display: flex;
-  margin-top: 50px;
+  margin: 50px 0;
   padding-right: 40px;
 }
+.title,
+.rating,
+.year {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #e71c60;
+}
+.recommends {
+  margin-bottom: 40px;
+}
+.recommends__heading {
+  padding-left: 20px;
+  color: #e71c60;
+  margin-bottom: 20px;
+}
 .title {
-  margin-bottom: 30px;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 .movie-info {
-  margin-left: 20px;
+  margin-left: 30px;
+  padding-right: 20px;
 }
 .img {
   width: 300px;

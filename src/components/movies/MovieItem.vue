@@ -28,9 +28,7 @@
 </template>
 
 <script>
-// import BaseNotification from "../UI/BaseNotification.vue";
 export default {
-  // components: { BaseNotification },
   props: [
     "title",
     "id",

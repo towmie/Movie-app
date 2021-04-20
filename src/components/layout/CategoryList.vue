@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div @click="showCat">
       <img class="icon" src="./../../assets/icons/video.svg" />
-      <span class="title">Category</span>
+      <span class="title">Categories</span>
     </div>
     <transition name="fade">
       <ul v-if="isOpend">
