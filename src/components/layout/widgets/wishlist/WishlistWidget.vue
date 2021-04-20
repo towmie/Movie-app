@@ -29,7 +29,7 @@ export default {
 
   computed: {
     localMovies() {
-      return this.$store.getters["wishlist/getWidgetWishList"];
+      return this.$store.getters["wishlist/getWishlistMovies"];
     },
 
     isNotEmpty() {

@@ -3,12 +3,10 @@
     <h2 class="title">Your WishList:</h2>
     <ul class="list" @click="show">
       <movie-item
-        v-for="movie of wishList"
+        v-for="movie of localMovies"
         :key="movie.id"
         :id="movie.id"
         :title="movie.title"
-        :desc="movie.desc"
-        :year="movie.year"
         :cover="movie.cover"
         :rating="movie.rating"
         :genres="movie.genres"
@@ -24,9 +22,8 @@ export default {
   components: { MovieItem },
 
   computed: {
-    wishList() {
-      // return this.$store.getters["wishlist/getWidgetWishList"];
-      return JSON.parse(localStorage.getItem("movies"));
+    localMovies() {
+      return this.$store.getters["wishlist/getWishListForPage"];
     },
   },
 };

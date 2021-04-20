@@ -59,7 +59,7 @@ export default {
 
   methods: {
     addToWhishlist() {
-      const list = this.$store.getters["wishlist/getWishList"];
+      const list = this.$store.getters["wishlist/getWishlistMovies"];
       if (!list.find((el) => el.id === this.id)) {
         this.$store.dispatch("wishlist/addToWhishlist", {
           id: this.id,

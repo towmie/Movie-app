@@ -1,22 +1,16 @@
 "use strict";
 export default {
-  getWishListFromLS(state) {
-    if (localStorage.getItem("movies")) {
-      state.moviesLocal = JSON.parse(localStorage.getItem("movies"));
-    }
-    return state.moviesLocal;
-  },
-  getWishList(state) {
-    if (localStorage.getItem("movies")) {
+  getWishlistMovies(state) {
+    if (JSON.parse(localStorage.getItem("movies"))) {
       state.moviesLocal = JSON.parse(localStorage.getItem("movies"));
     }
     return state.moviesLocal;
   },
 
-  getWidgetWishList(state) {
-    if (localStorage.getItem("movies")) {
-      state.moviesLocal = JSON.parse(localStorage.getItem("movies"));
+  getWishListForPage(state) {
+    if (JSON.parse(localStorage.getItem("movies"))) {
+      state.movieList = JSON.parse(localStorage.getItem("movies"));
     }
-    return state.moviesLocal;
+    return state.movieList;
   },
 };
