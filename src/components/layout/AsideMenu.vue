@@ -47,9 +47,23 @@ export default {
   data() {
     return {
       openMob: false,
+      mobScreenWidth: 700,
     };
   },
+  watch: {
+    onresize(data) {
+      console.log(data);
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.updateOpenMob);
+  },
   methods: {
+    updateOpenMob() {
+      if (document.body.clientWidth <= this.mobScreenWidth) {
+        this.openMob = false;
+      }
+    },
     navActive() {
       this.openMob = !this.openMob;
       this.$emit("nav-active", this.openMob);

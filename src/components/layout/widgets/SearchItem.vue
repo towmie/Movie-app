@@ -64,4 +64,9 @@ export default {
   width: 20px;
   height: 20px;
 }
+@media (max-width: 700px) {
+  .search-input {
+    width: 110px;
+  }
+}
 </style>
