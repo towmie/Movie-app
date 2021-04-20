@@ -54,9 +54,8 @@ export default {
 <style scoped>
 .title {
   display: block;
-  padding: 15px;
+  /* padding: 15px; */
   margin-top: 16px;
-  padding-bottom: 26px;
   color: #353535;
   font-size: 18px;
   font-weight: 300;
@@ -67,9 +66,12 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+  position: relative;
+  padding: 15px;
+  margin-top: 10px;
 }
 .btn-wrapper {
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 .prev,
 .next {
@@ -88,5 +90,17 @@ export default {
 }
 .next {
   background-image: url(./../assets/icons/next.png);
+}
+@media (max-width: 700px) {
+  .btn-wrapper {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .title {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 </style>

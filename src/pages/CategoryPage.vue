@@ -75,4 +75,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+@media (max-width: 700px) {
+  .title {
+    text-align: center;
+  }
+}
 </style>

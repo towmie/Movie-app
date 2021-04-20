@@ -5,7 +5,7 @@
       You have added no movies yet<br />
       <span>*press + on the movie card to add the movie to the whishlist</span>
     </p>
-    <ul v-else class="list">
+    <ul v-else class="list-widget">
       <wish-list-widget-item
         v-for="movie of localMovies"
         :key="movie.id"
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.list {
+.list-widget {
   max-height: 345px;
   overflow-y: hidden;
 }

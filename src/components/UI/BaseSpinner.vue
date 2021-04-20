@@ -113,4 +113,10 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 700px) {
+  .container {
+    top: 200px;
+  }
+}
 </style>

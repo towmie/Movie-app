@@ -15,8 +15,8 @@ export default {
 <style scoped>
 .modal {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 }
 .confirm {
   background-color: rgb(3, 134, 3);
@@ -26,5 +26,11 @@ export default {
 }
 .error {
   background-color: rgb(167, 3, 3);
+}
+@media (max-width: 700px) {
+  .modal {
+    top: 10px;
+    right: 10px;
+  }
 }
 </style>

@@ -1,22 +1,22 @@
 <template>
-  <div class="wid">
-    <search-item class="search"></search-item>
+  <div class="widgets">
     <top-rated-widget></top-rated-widget>
     <wishlist-widget></wishlist-widget>
   </div>
 </template>
 
 <script>
-import SearchItem from "./widgets/SearchItem";
 import TopRatedWidget from "./widgets/topRated/TopRatedWidget";
 import WishlistWidget from "./widgets/wishlist/WishlistWidget";
 export default {
-  components: { WishlistWidget, TopRatedWidget, SearchItem },
+  components: { WishlistWidget, TopRatedWidget },
 };
 </script>
 
 <style scoped>
-.wid {
+.widgets {
+  min-width: 265px;
   padding: 10px;
+  padding-top: 37px;
 }
 </style>

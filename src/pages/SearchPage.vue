@@ -6,7 +6,7 @@
     <base-spinner></base-spinner>
   </div>
   <div class="wrapper" v-else>
-    <p v-if="!movieIsFound" class="error">Nothing is Found:(</p>
+    <p v-if="!movieIsFound" class="error">Nothing was Found:(</p>
     <ul class="list" v-else>
       <movie-item
         v-for="movie of serchedMovieList"
@@ -80,5 +80,10 @@ export default {
 .list {
   display: flex;
   flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .title {
+    text-align: center;
+  }
 }
 </style>

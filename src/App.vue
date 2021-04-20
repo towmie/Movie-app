@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper">
-    <aside-menu class="left"></aside-menu>
+    <aside-menu
+      class="left"
+      @nav-active="showNav"
+      :style="openMob"
+    ></aside-menu>
     <div class="main-info">
       <router-view></router-view>
     </div>
@@ -13,6 +17,16 @@ import AsideMenu from "./components/layout/AsideMenu";
 import RightWidgets from "./components/layout/RightWidgets";
 export default {
   components: { AsideMenu, RightWidgets },
+  data() {
+    return {
+      openMob: null,
+    };
+  },
+  methods: {
+    showNav(val) {
+      val ? (this.openMob = "left: 0;") : (this.openMob = "left: -155px;");
+    },
+  },
 };
 </script>
 
@@ -68,5 +82,29 @@ ul {
   width: 100%;
   border-right: 2px solid rgba(163, 163, 163, 0.3);
   border-left: 2px solid rgba(163, 163, 163, 0.3);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 1400px) {
+  .list {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 910px) {
+  .right {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .left {
+    position: fixed;
+    width: 150px;
+    left: -155px;
+    z-index: 20;
+  }
 }
 </style>

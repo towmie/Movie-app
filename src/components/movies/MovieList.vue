@@ -36,4 +36,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+@media (max-width: 1420px) {
+  .list {
+    justify-content: space-around;
+  }
+} ;
 </style>

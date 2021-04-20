@@ -151,7 +151,6 @@ export default {
 }
 .wrapper {
   position: relative;
-  opacity: 0;
   width: 100%;
   height: 100%;
   transition: all 0.3s ease-out;
@@ -161,9 +160,14 @@ export default {
   position: absolute;
   color: #fff;
   font-weight: 300;
+  opacity: 0;
+  transition: all 0.3s ease-out;
 }
 
-.card:hover .wrapper {
+.card:hover .top {
+  opacity: 1;
+}
+.card:hover .info {
   opacity: 1;
 }
 .card:hover .bg {
@@ -177,6 +181,7 @@ export default {
   font-size: 20px;
 }
 .info {
+  opacity: 0;
   margin-top: auto;
   display: block;
   padding: 10px 0;
@@ -184,6 +189,7 @@ export default {
   text-align: center;
   color: #fff;
   background-color: #e71c60;
+  transition: all 0.3s ease-out;
 }
 
 .bg {
@@ -192,5 +198,16 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+@media (max-width: 1200px) {
+  .modal {
+    top: 20px;
+    right: 20px;
+  }
+
+  .info {
+    opacity: 1;
+  }
 }
 </style>

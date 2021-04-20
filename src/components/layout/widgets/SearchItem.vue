@@ -33,6 +33,7 @@ export default {
 </script>
 <style scoped>
 .search-input {
+  width: 150px;
   font-size: 16px;
   border: none;
   background-color: rgb(235, 235, 235);
@@ -44,12 +45,17 @@ export default {
   margin-top: 20px;
   display: block;
 }
+.input-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
 
 .serach-btn {
   position: absolute;
   cursor: pointer;
-  right: 65px;
-  top: 36px;
+  right: 25px;
+  top: 25px;
   border: none;
   background-color: transparent;
   background-image: url(./../../../assets/icons/search.svg);

@@ -136,4 +136,19 @@ span {
   padding: 3px;
   border-radius: 4px;
 }
+@media (max-width: 1150px) {
+  .details {
+    flex-wrap: wrap;
+  }
+  .img {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .movie-info {
+    margin: 0;
+    padding: 0;
+  }
+}
 </style>
