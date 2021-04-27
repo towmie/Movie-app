@@ -6,6 +6,7 @@ import WhishList from "./../pages/WhishList";
 import SearchPage from "./../pages/SearchPage";
 import MovieDetails from "./../pages/MovieDetails";
 import CategoryPage from "./../pages/CategoryPage";
+import LoginSignupPage from "./../pages/LoginSignupPage";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,8 @@ const router = createRouter({
     { path: "/search", component: SearchPage, name: "search" },
     { path: "/wishlist", component: WhishList, name: "wishlist" },
     { path: "/profile", component: Profile, name: "profile" },
+    { path: "/profile", component: Profile, name: "profile" },
+    { path: "/login", component: LoginSignupPage, name: "login" },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
       path: "/details/:movieId",

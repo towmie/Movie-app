@@ -1,9 +1,10 @@
 <template>
   <div class="menu-profile">
     <router-link to="/profile">
-      <img :src="profileImg" alt="" />
+      <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
     <router-link class="text" to="/profile">{{ fullName }}</router-link>
+    <span>logout</span>
   </div>
 </template>
 
@@ -26,6 +27,12 @@ export default {
 }
 .img {
   width: 50px;
+}
+span {
+  cursor: pointer;
+  font-size: 14px;
+  color: #e71c60;
+  text-decoration: underline;
 }
 img {
   border-radius: 50%;

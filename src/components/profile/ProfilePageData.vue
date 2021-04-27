@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     showChangePass() {
-      this.changePass = !this.changePass;
+      this.changePassMode = !this.changePassMode;
     },
     toggleEditMode() {
       this.editMode = !this.editMode;
