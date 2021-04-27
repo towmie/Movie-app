@@ -67,8 +67,8 @@
 export default {
   data() {
     return {
-      newFirstName: "",
-      newLastName: "",
+      newFirstName: this.firstName,
+      newLastName: this.lastName,
       newUserName: "",
       newPass: "",
       changePassMode: false,

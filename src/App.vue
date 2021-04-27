@@ -8,16 +8,16 @@
     <div class="main-info">
       <router-view></router-view>
     </div>
-    <!-- <right-widgets class="right"></right-widgets> -->
+    <right-widgets class="right"></right-widgets>
   </div>
 </template>
 
 <script>
 import AsideMenu from "./components/layout/AsideMenu";
-// import RightWidgets from "./components/layout/RightWidgets";
-// RightWidgets
+import RightWidgets from "./components/layout/RightWidgets";
+
 export default {
-  components: { AsideMenu },
+  components: { AsideMenu, RightWidgets },
   data() {
     return {
       openMob: null,
