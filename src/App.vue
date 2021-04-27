@@ -70,12 +70,13 @@ ul {
   display: flex;
 }
 .left {
-  width: 350px;
-  background-color: #fff;
-  height: 100vh;
+  /* position: relative; */
+  /* width: 350px; */
+  /* background-color: #fff;
+  height: 100vh; */
 }
 .right {
-  width: 450px;
+  width: 350px;
   background-color: #fff;
 }
 .main-info {

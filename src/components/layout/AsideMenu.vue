@@ -31,18 +31,23 @@
         <li class="menu__item">
           <category-list></category-list>
         </li>
+        <li class="menu__item profile-bottom">
+          <menu-profile></menu-profile>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import MenuProfile from "./../profile/MenuProfile";
 import CategoryList from "./CategoryList";
 import SearchItem from "./widgets/SearchItem.vue";
 export default {
   components: {
     CategoryList,
     SearchItem,
+    MenuProfile,
   },
   data() {
     return {
@@ -78,6 +83,7 @@ export default {
   height: 20px;
   z-index: 100;
 }
+
 .menu__item {
   display: flex;
   align-items: center;
@@ -98,6 +104,8 @@ h3 {
   color: rgb(53, 53, 53);
 }
 .menu__wrapper {
+  height: 85vh;
+  width: 220px;
   display: flex;
   flex-direction: column;
 }
@@ -106,7 +114,12 @@ h3 {
   font-weight: 700;
   border-right: 4px solid #e71c60;
 }
-
+.profile-bottom {
+  margin-top: auto;
+  align-self: center;
+  padding: 0;
+  margin-left: -20px;
+}
 .logo-link {
   width: 100px;
   display: inline-block;
@@ -132,6 +145,8 @@ h3 {
   display: none;
 }
 .nav {
+  /* position: fixed; */
+  background: #fff;
   padding: 20px 0 20px 20px;
 }
 @media (max-width: 700px) {
@@ -143,6 +158,7 @@ h3 {
     padding-left: 5px;
   }
   .nav {
+    width: 180px;
     padding: 20px 0 20px 5px;
   }
   .mobile-menu,
