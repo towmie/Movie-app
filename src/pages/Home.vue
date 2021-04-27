@@ -53,25 +53,22 @@ export default {
 
 <style scoped>
 .title {
-  display: block;
-  /* padding: 15px; */
+  padding: 15px;
   margin-top: 16px;
+  padding-bottom: 26px;
   color: #353535;
   font-size: 18px;
   font-weight: 300;
 }
 .btn {
-  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   border-bottom: 1px solid rgba(53, 53, 53, 0.3);
-  position: relative;
-  padding: 15px;
-  margin-top: 10px;
 }
 .btn-wrapper {
-  /* margin-left: auto; */
+  margin-right: 10px;
 }
 .prev,
 .next {
