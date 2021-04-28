@@ -4,18 +4,28 @@
       <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
     <router-link class="text" to="/profile">{{ fullName }}</router-link>
-    <span>logout</span>
+    <span @click="logout">logout</span>
   </div>
 </template>
 
 <script>
 export default {
+  created() {
+    this.$store.dispatch("profile/setUserInfo");
+  },
   computed: {
     fullName() {
-      return "Andrey Ziuzin";
+      const firstName = this.$store.getters["profile/getUserFirstName"];
+      const lasttName = this.$store.getters["profile/getUserLastName"];
+      return `${firstName} ${lasttName}`;
     },
     profileImg() {
       return "./../../assets/profile.jpg";
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("profile/logout");
     },
   },
 };

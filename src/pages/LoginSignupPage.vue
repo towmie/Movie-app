@@ -3,8 +3,12 @@
   <div class="bg">
     <base-form class="form">
       <div class="btn">
-        <button @click="toggleLogin">Login</button>
-        <button @click="toggleLogin">SignUp</button>
+        <button @click="toggleToLogin" :class="{ activebtn: loginOpened }">
+          Login
+        </button>
+        <button @click="toggleToSignUp" :class="{ activebtn: !loginOpened }">
+          SignUp
+        </button>
       </div>
       <login v-if="loginOpened"></login>
       <sign-up v-else></sign-up>
@@ -23,8 +27,11 @@ export default {
     };
   },
   methods: {
-    toggleLogin() {
-      this.loginOpened = !this.loginOpened;
+    toggleToLogin() {
+      this.loginOpened = true;
+    },
+    toggleToSignUp() {
+      this.loginOpened = false;
     },
   },
 };
@@ -33,6 +40,25 @@ export default {
 <style scoped>
 .form {
   margin-top: 20%;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.btn button {
+  cursor: pointer;
+  margin: 0 10px;
+  border: none;
+  background-color: rgb(240, 239, 239);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.activebtn {
+  color: #fff;
+  background-color: #e71c60 !important;
 }
 .bg {
   display: flex;

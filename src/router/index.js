@@ -16,7 +16,7 @@ const router = createRouter({
     { path: "/wishlist", component: WhishList, name: "wishlist" },
     { path: "/profile", component: Profile, name: "profile" },
     { path: "/profile", component: Profile, name: "profile" },
-    { path: "/login", component: LoginSignupPage, name: "login" },
+    { path: "/auth", component: LoginSignupPage, name: "auth" },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
       path: "/details/:movieId",

@@ -35,14 +35,14 @@
       <div class="item">
         <div>
           <p class="title" v-if="!editMode">
-            UserName:
-            <span>{{ userName }}</span>
+            Description:
+            <span>{{ description }}</span>
           </p>
-          <input
+          <textarea
             class="edit-input"
             type="text"
             v-else
-            v-model="newUserName"
+            v-model="description"
             placeholder="Enter User Name"
           />
         </div>
@@ -65,11 +65,14 @@
 
 <script>
 export default {
+  created() {
+    this.$store.dispatch("profile/setUserInfo");
+  },
   data() {
     return {
       newFirstName: this.firstName,
       newLastName: this.lastName,
-      newUserName: "",
+      newDescription: "",
       newPass: "",
       changePassMode: false,
       editMode: false,
@@ -88,13 +91,13 @@ export default {
   },
   computed: {
     firstName() {
-      return "Andrey";
+      return this.$store.getters["profile/getUserFirstName"];
     },
     lastName() {
-      return "Ziuzin";
+      return this.$store.getters["profile/getUserLastName"];
     },
-    userName() {
-      return "towmie";
+    description() {
+      return this.$store.getters["profile/getUserDescription"];
     },
   },
 };
@@ -125,6 +128,9 @@ form {
   font-weight: 700;
   color: #e71c60;
   padding-left: 10px;
+}
+textarea {
+  font-family: inherit;
 }
 
 .edit-input {

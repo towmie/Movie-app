@@ -20,6 +20,9 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
+  // created() {
+  //   this.$store.getters["profile/getWishListForPage"];
+  // },
 
   computed: {
     localMovies() {

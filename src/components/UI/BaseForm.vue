@@ -10,8 +10,10 @@ export default {};
 
 <style scoped>
 .form {
-  padding: 20px 30px;
-  background-color: rgb(247, 247, 247);
-  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 </style>

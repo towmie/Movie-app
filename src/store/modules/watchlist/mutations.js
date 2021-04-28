@@ -7,14 +7,17 @@ function saveToLS(list) {
 
 export default {
   addToWhishlist(state, payload) {
-    // if (JSON.parse(localStorage.getItem("movies"))) {
-    //   console.log("yeee");
-    // }
+    state.movieList.push(payload);
+    console.log(state.movieList, payload);
     const id = payload.id;
     const alreadyIn = state.moviesLocal.find((mov) => mov.id === id);
     if (alreadyIn) return;
     state.moviesLocal.unshift(payload);
     saveToLS(state.moviesLocal);
+  },
+
+  allWishlistMovies(state, payload) {
+    state.movieList = payload;
   },
 
   deleteFromWhishlist(state, payload) {
