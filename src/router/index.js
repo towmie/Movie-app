@@ -7,6 +7,8 @@ import SearchPage from "./../pages/SearchPage";
 import MovieDetails from "./../pages/MovieDetails";
 import CategoryPage from "./../pages/CategoryPage";
 import LoginSignupPage from "./../pages/LoginSignupPage";
+import Login from "./../components/auth/Login";
+import SignUp from "./../components/auth/SignUp";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,7 +18,14 @@ const router = createRouter({
     { path: "/wishlist", component: WhishList, name: "wishlist" },
     { path: "/profile", component: Profile, name: "profile" },
     { path: "/profile", component: Profile, name: "profile" },
-    { path: "/auth", component: LoginSignupPage, name: "auth" },
+    {
+      path: "/auth",
+      component: LoginSignupPage,
+      name: "auth",
+      children: [
+        { path: "/auth", components: { login: Login, signup: SignUp } },
+      ],
+    },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
       path: "/details/:movieId",

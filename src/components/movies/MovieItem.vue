@@ -67,6 +67,7 @@ export default {
       //   year: this.year,
       // });
       const list = this.$store.getters["wishlist/getWishListForPage"];
+      console.log(list);
       if (!list.find((el) => el.id === this.id)) {
         this.$store.dispatch("wishlist/addToWhishlist", {
           id: this.id,

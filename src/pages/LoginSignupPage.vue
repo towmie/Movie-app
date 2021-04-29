@@ -10,17 +10,19 @@
           SignUp
         </button>
       </div>
-      <login v-if="loginOpened"></login>
-      <sign-up v-else></sign-up>
+      <router-view name="login" v-if="loginOpened"></router-view>
+      <router-view name="signup" v-else></router-view>
+      <!-- <login v-if="loginOpened"></login>
+      <sign-up v-else></sign-up> -->
     </base-form>
   </div>
 </template>
 
 <script>
-import Login from "./../components/auth/Login";
-import SignUp from "./../components/auth/SignUp";
+// import Login from "./../components/auth/Login";
+// import SignUp from "./../components/auth/SignUp";
 export default {
-  components: { Login, SignUp },
+  // components: { Login, SignUp },
   data() {
     return {
       loginOpened: true,
