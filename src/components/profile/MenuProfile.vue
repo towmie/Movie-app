@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-profile">
+  <div class="menu-profile" v-if="isLoggedIn">
     <router-link to="/profile">
       <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
@@ -10,8 +10,8 @@
 
 <script>
 export default {
-  created() {
-    this.$store.dispatch("profile/setUserInfo");
+  async created() {
+    await this.$store.dispatch("profile/setUserInfo");
   },
   computed: {
     fullName() {
@@ -22,10 +22,14 @@ export default {
     profileImg() {
       return "./../../assets/profile.jpg";
     },
+    isLoggedIn() {
+      return this.$store.getters["profile/getIsLoggedin"];
+    },
   },
   methods: {
     logout() {
       this.$store.dispatch("profile/logout");
+      this.$router.replace("/");
     },
   },
 };

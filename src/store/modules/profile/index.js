@@ -11,6 +11,7 @@ export default {
       token: null,
       tokenExpiration: null,
       userInfo: {},
+      isLoggedIn: false,
     };
   },
   actions,

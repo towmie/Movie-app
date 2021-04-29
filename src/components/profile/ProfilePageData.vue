@@ -47,17 +47,7 @@
           />
         </div>
       </div>
-      <div class="pass-box">
-        <button @click="showChangePass" class="reset">Reset Password</button>
-        <div v-if="changePassMode || editMode">
-          <input
-            class="edit-input pass"
-            type="password"
-            placeholder="New password"
-            v-model="newPass"
-          />
-        </div>
-      </div>
+
       <button class="submit" @submit.prevent="submitNewData">Submit</button>
     </form>
   </div>

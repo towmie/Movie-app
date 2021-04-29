@@ -57,23 +57,32 @@ export default {
 
   methods: {
     addToWhishlist() {
-      const list = this.$store.getters["wishlist/getWishlistMovies"];
-      if (!list.find((el) => el.id === this.id)) {
-        this.$store.dispatch("wishlist/addToWhishlist", {
-          id: this.id,
-          title: this.title,
-          cover: this.cover,
-          genres: this.genres,
-          desc: this.desc,
-          rating: this.rating,
-          year: this.year,
-        });
-      } else {
-        this.isAlreadyIn = true;
-        setTimeout(() => {
-          this.isAlreadyIn = false;
-        }, 2000);
-      }
+      this.$store.dispatch("wishlist/addToWhishlist", {
+        id: this.id,
+        title: this.title,
+        cover: this.cover,
+        genres: this.genres,
+        desc: this.desc,
+        rating: this.rating,
+        year: this.year,
+      });
+      // const list = this.$store.getters["wishlist/getWishlistMovies"];
+      // if (!list.find((el) => el.id === this.id)) {
+      // this.$store.dispatch("wishlist/addToWhishlist", {
+      //   id: this.id,
+      //   title: this.title,
+      //   cover: this.cover,
+      //   genres: this.genres,
+      //   desc: this.desc,
+      //   rating: this.rating,
+      //   year: this.year,
+      // });
+      // } else {
+      //   this.isAlreadyIn = true;
+      //   setTimeout(() => {
+      //     this.isAlreadyIn = false;
+      //   }, 2000);
+      // }
     },
 
     deleteFromWhishlist() {

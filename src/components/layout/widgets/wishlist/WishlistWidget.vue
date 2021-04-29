@@ -1,11 +1,12 @@
 <template>
   <div>
     <h3 class="heading">WishList:</h3>
-    <p v-if="isNotEmpty">
+    <!-- v-if="isNotEmpty" -->
+    <p>
       You have added no movies yet<br />
       <span>*press + on the movie card to add the movie to the whishlist</span>
     </p>
-    <ul v-else class="list-widget">
+    <ul class="list-widget">
       <wish-list-widget-item
         v-for="movie of localMovies"
         :key="movie.id"
@@ -16,9 +17,7 @@
         :cover="movie.cover"
       ></wish-list-widget-item>
     </ul>
-    <router-link v-if="isMoreThenFour" to="/wishlist" class="info"
-      >Show All</router-link
-    >
+    <router-link to="/wishlist" class="info">Show All</router-link>
   </div>
 </template>
 
@@ -32,21 +31,21 @@ export default {
       return this.$store.getters["wishlist/getWishlistMovies"];
     },
 
-    isNotEmpty() {
-      if (this.localMovies.length > 0) {
-        return false;
-      } else {
-        return true;
-      }
-    },
+    // isNotEmpty() {
+    //   if (this.localMovies.length > 0) {
+    //     return false;
+    //   } else {
+    //     return true;
+    //   }
+    // },
 
-    isMoreThenFour() {
-      if (this.localMovies.length > 3) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    // isMoreThenFour() {
+    //   if (this.localMovies.length > 3) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // },
   },
 };
 </script>

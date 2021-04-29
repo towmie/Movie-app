@@ -8,9 +8,6 @@ export default {
     return state.userId;
   },
 
-  // getCurrentUser(state) {
-  //   return state.selectedUser;
-  // },
   getUserFirstName(state) {
     return state.userInfo.firstName;
   },
@@ -20,7 +17,10 @@ export default {
   getUserDescription(state) {
     return state.userInfo.description;
   },
-  // getIsLoggedin(state) {
-  //   return state.isLoggedIn;
-  // },
+  getIsLoggedin(state) {
+    localStorage.getItem("data")
+      ? (state.isLoggedIn = true)
+      : (state.isLoggedIn = false);
+    return state.isLoggedIn;
+  },
 };

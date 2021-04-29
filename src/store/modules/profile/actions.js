@@ -80,7 +80,7 @@ export default {
       `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`
     );
     const data = await response.json();
-    console.log(data);
+
     context.commit("addUserInfo", data);
   },
 

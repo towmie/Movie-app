@@ -16,7 +16,7 @@
           <img class="icon" src="./../../assets/icons/home.svg" />
           <router-link to="/" class="home" @click="navActive">Home</router-link>
         </li>
-        <li class="menu__item">
+        <li class="menu__item" v-if="isLoggedIn">
           <img class="icon" src="./../../assets/icons/user.svg" />
           <router-link to="/profile" class="profile" @click="navActive"
             >Profile</router-link
@@ -62,6 +62,11 @@ export default {
   },
   created() {
     window.addEventListener("resize", this.updateOpenMob);
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters["profile/getIsLoggedin"];
+    },
   },
   methods: {
     updateOpenMob() {
