@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2 class="title">Your WishList:</h2>
-    <ul class="list" @click="show">
+    <p v-if="!isLoggedIn">Login To see your Watch List</p>
+    <ul v-else class="list" @click="show">
       <movie-item
         v-for="movie of localMovies"
         :key="movie.id"
@@ -20,14 +21,16 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
-  created() {
-    this.$store.dispatch("wishlist/getAllWishListMovies");
-    console.log(this.$store.getters["wishlist/getWishListForPage"]);
-  },
+  // created() {
+  //   this.$store.dispatch("wishlist/getAllWishListMovies");
+  // },
 
   computed: {
     localMovies() {
       return this.$store.getters["wishlist/getWishListForPage"];
+    },
+    isLoggedIn() {
+      return this.$store.getters["profile/getIsLoggedin"];
     },
   },
 };

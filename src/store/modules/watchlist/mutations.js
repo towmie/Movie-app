@@ -2,13 +2,10 @@
 
 export default {
   addToWhishlist(state, payload) {
-    // console.log(payload);
-    // state.movieList.push(payload);
     const id = payload.id;
     const alreadyIn = state.movieList.find((mov) => mov.id === id);
     if (alreadyIn) return;
     state.movieList.unshift(payload);
-    console.log(state.movieList);
   },
 
   allWishlistMovies(state, payload) {
@@ -16,6 +13,6 @@ export default {
   },
 
   deleteFromWhishlist(state, payload) {
-    console.log(state, payload);
+    state.movieList = state.movieList.filter((movie) => movie.id !== payload);
   },
 };

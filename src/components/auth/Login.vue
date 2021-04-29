@@ -26,6 +26,7 @@ export default {
         this.$router.replace("/");
       } catch (error) {
         console.log(error);
+        return;
       }
     },
   },

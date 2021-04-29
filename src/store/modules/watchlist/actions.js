@@ -2,6 +2,7 @@
 
 export default {
   async getAllWishListMovies(context) {
+    if (!localStorage.getItem("data")) return;
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
 
@@ -16,6 +17,8 @@ export default {
   },
 
   async addToWhishlist(context, payload) {
+    if (!localStorage.getItem("data")) return;
+
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
     const response = await fetch(
@@ -33,6 +36,8 @@ export default {
   },
 
   async deleteFromWhishlist(context, payload) {
+    if (!localStorage.getItem("data")) return;
+
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
     const response = await fetch(
@@ -41,8 +46,10 @@ export default {
         method: "DELETE",
       }
     );
-    const data = await response.json();
-    console.log(data);
-    context.commit("deleteFromWhishlist", data);
+    if (!response.ok) {
+      console.log("error");
+    }
+    // const data = await response.json();
+    context.commit("deleteFromWhishlist", payload);
   },
 };

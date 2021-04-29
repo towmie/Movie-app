@@ -28,6 +28,8 @@ export default {
   },
 
   async addUserInfo(context, payload) {
+    if (!localStorage.getItem("data")) return;
+
     const userId = context.rootGetters["profile/userId"];
     const token = context.rootGetters["profile/token"];
     const infoObj = {
@@ -74,6 +76,8 @@ export default {
   },
 
   async setUserInfo(context) {
+    if (!localStorage.getItem("data")) return;
+
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
     const response = await fetch(

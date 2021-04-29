@@ -4,7 +4,7 @@
       <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
     <router-link class="text" to="/profile">{{ fullName }}</router-link>
-    <span @click="logout">logout</span>
+    <a @click="logout">logout</a>
   </div>
 </template>
 
@@ -29,7 +29,6 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("profile/logout");
-      this.$router.replace("/");
     },
   },
 };
