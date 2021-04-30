@@ -2,10 +2,8 @@
 
 export default {
   async getAllWishListMovies(context) {
-    if (!localStorage.getItem("data")) return;
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
-
     const response = await fetch(
       `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}/wishlist.json?auth=${token}`
     );
@@ -18,20 +16,20 @@ export default {
 
   async addToWhishlist(context, payload) {
     if (!localStorage.getItem("data")) return;
+    console.log(payload);
+    // const lsData = JSON.parse(localStorage.getItem("data"));
+    // const { userId, token } = lsData;
+    // const response = await fetch(
+    //   `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}/wishlist/${payload.id}.json?auth=${token}`,
+    //   {
+    //     method: "PUT",
+    //     body: JSON.stringify(payload),
+    //   }
+    // );
 
-    const lsData = JSON.parse(localStorage.getItem("data"));
-    const { userId, token } = lsData;
-    const response = await fetch(
-      `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}/wishlist/${payload.id}.json?auth=${token}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(payload),
-      }
-    );
-
-    if (!response.ok) {
-      console.log("error");
-    }
+    // if (!response.ok) {
+    //   console.log("error");
+    // }
     context.commit("addToWhishlist", payload);
   },
 
@@ -49,7 +47,7 @@ export default {
     if (!response.ok) {
       console.log("error");
     }
-    // const data = await response.json();
+
     context.commit("deleteFromWhishlist", payload);
   },
 };

@@ -13,6 +13,11 @@ export default {
   },
 
   deleteFromWhishlist(state, payload) {
+    console.log(payload);
+    console.log(state.movieList);
+    let arr = [];
+    arr = Object.values(state.movieList);
+    console.log(arr);
     state.movieList = state.movieList.filter((movie) => movie.id !== payload);
   },
 };

@@ -4,7 +4,6 @@
       <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
     <router-link class="text" to="/profile">{{ fullName }}</router-link>
-    <a @click="logout">logout</a>
   </div>
 </template>
 
@@ -24,11 +23,6 @@ export default {
     },
     isLoggedIn() {
       return this.$store.getters["profile/getIsLoggedin"];
-    },
-  },
-  methods: {
-    logout() {
-      this.$store.dispatch("profile/logout");
     },
   },
 };
