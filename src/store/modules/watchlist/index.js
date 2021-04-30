@@ -7,9 +7,11 @@ export default {
   namespaced: true,
   state() {
     return {
+      moviesLocal: [],
       movieList: [],
     };
   },
+
   actions,
   getters,
   mutations,

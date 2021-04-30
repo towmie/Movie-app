@@ -29,9 +29,8 @@ export default {
 
   computed: {
     localMovies() {
-      return this.$store.getters["wishlist/getWishListForPage"];
+      return this.$store.getters["wishlist/getWishlistMovies"];
     },
-
     isNotEmpty() {
       if (this.localMovies && this.localMovies.length > 0) {
         return false;

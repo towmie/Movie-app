@@ -21,15 +21,11 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
-  data() {
-    return {
-      localMovies: [],
-    };
-  },
+
   computed: {
-    // localMovies() {
-    //   return this.$store.getters["wishlist/getWishListForPage"];
-    // },
+    localMovies() {
+      return this.$store.getters["wishlist/getWishListForPage"];
+    },
     isLoggedIn() {
       return this.$store.getters["profile/getIsLoggedin"];
     },

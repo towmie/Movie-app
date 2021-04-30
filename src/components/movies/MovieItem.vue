@@ -72,8 +72,7 @@ export default {
         return;
       }
 
-      const list = this.$store.getters["wishlist/getWishListForPage"];
-      console.log(list);
+      const list = this.$store.getters["wishlist/getWishlistMovies"];
       if (!list.find((el) => el.id === this.id)) {
         this.$store.dispatch("wishlist/addToWhishlist", {
           id: this.id,
@@ -92,8 +91,8 @@ export default {
       }
     },
 
-    async deleteFromWhishlist() {
-      await this.$store.dispatch("wishlist/deleteFromWhishlist", this.id);
+    deleteFromWhishlist() {
+      this.$store.dispatch("wishlist/deleteFromWhishlist", this.id);
     },
 
     chooseSelectedMovie() {
