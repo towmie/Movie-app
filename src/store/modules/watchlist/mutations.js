@@ -1,23 +1,17 @@
 "use strict";
+function saveToLS(list) {
+  const parsed = JSON.stringify(list);
+  localStorage.setItem("wishlist", parsed);
+}
 
 export default {
   addToWhishlist(state, payload) {
-    const id = payload.id;
-    const alreadyIn = state.movieList.find((mov) => mov.id === id);
-    if (alreadyIn) return;
     state.movieList.unshift(payload);
-  },
-
-  allWishlistMovies(state, payload) {
-    state.movieList = payload;
+    saveToLS(state.movieList);
   },
 
   deleteFromWhishlist(state, payload) {
-    console.log(payload);
-    console.log(state.movieList);
-    let arr = [];
-    arr = Object.values(state.movieList);
-    console.log(arr);
     state.movieList = state.movieList.filter((movie) => movie.id !== payload);
+    saveToLS(state.movieList);
   },
 };

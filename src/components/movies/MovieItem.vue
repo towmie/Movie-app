@@ -63,31 +63,33 @@ export default {
   },
 
   methods: {
-    async addToWhishlist() {
+    addToWhishlist() {
       if (!this.needToLogin) {
         this.loginToAddMovie = true;
         setTimeout(() => {
           this.loginToAddMovie = false;
         }, 2000);
+        return;
       }
 
-      // const list = this.$store.getters["wishlist/getWishListForPage"];
-      // if (!list.find((el) => el.id === this.id)) {
-      this.$store.dispatch("wishlist/addToWhishlist", {
-        id: this.id,
-        title: this.title,
-        cover: this.cover,
-        genres: this.genres,
-        desc: this.desc,
-        rating: this.rating,
-        year: this.year,
-      });
-      // } else {
-      //   this.isAlreadyIn = true;
-      //   setTimeout(() => {
-      //     this.isAlreadyIn = false;
-      //   }, 2000);
-      // }
+      const list = this.$store.getters["wishlist/getWishListForPage"];
+      console.log(list);
+      if (!list.find((el) => el.id === this.id)) {
+        this.$store.dispatch("wishlist/addToWhishlist", {
+          id: this.id,
+          title: this.title,
+          cover: this.cover,
+          genres: this.genres,
+          desc: this.desc,
+          rating: this.rating,
+          year: this.year,
+        });
+      } else {
+        this.isAlreadyIn = true;
+        setTimeout(() => {
+          this.isAlreadyIn = false;
+        }, 2000);
+      }
     },
 
     async deleteFromWhishlist() {

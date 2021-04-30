@@ -4,7 +4,7 @@
     <p v-if="!isLoggedIn">Login To see your Watch List</p>
     <ul v-else class="list" @click="show">
       <movie-item
-        v-for="movie of movieList"
+        v-for="movie of localMovies"
         :key="movie.id"
         :id="movie.id"
         :title="movie.title"
@@ -23,14 +23,9 @@ export default {
   components: { MovieItem },
   data() {
     return {
-      movieList: [],
+      localMovies: [],
     };
   },
-  async created() {
-    await this.$store.dispatch("wishlist/getAllWishListMovies");
-    this.movieList = this.$store.getters["wishlist/getWishListForPage"];
-  },
-
   computed: {
     // localMovies() {
     //   return this.$store.getters["wishlist/getWishListForPage"];
