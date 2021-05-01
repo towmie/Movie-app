@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="title">Your WishList:</h2>
-    <p v-if="!isLoggedIn">Login To see your Watch List</p>
+    <p v-if="!isLoggedIn" class="notlogin">*Login To see your Watch List</p>
     <ul v-else class="list" @click="show">
       <movie-item
         v-for="movie of localMovies"
@@ -54,6 +54,16 @@ export default {
 .list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.notlogin {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
 }
 @media (max-width: 700px) {
   .title {
