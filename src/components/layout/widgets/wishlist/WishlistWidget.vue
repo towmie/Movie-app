@@ -26,9 +26,9 @@
 import WishListWidgetItem from "./WishListWidgetItem";
 export default {
   components: { WishListWidgetItem },
-  // created() {
-  //   this.$store.dispatch("wishlist/getAllWishlist");
-  // },
+  created() {
+    this.$store.dispatch("wishlist/getAllWishlist");
+  },
 
   computed: {
     localMovies() {
