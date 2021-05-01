@@ -1,6 +1,6 @@
 <template>
   <div class="btn">
-    <h2 class="title">Home:</h2>
+    <h2 class="title-home">Home:</h2>
     <div class="btn-wrapper">
       <button class="prev" @click="prevPage"></button>
       <button class="next" @click="nextPage"></button>
@@ -89,6 +89,15 @@ export default {
 .next {
   background-image: url(./../assets/icons/next.png);
 }
+.title-home {
+  display: block;
+  padding: 15px;
+  margin-top: 16px;
+  padding-bottom: 26px;
+  color: #353535;
+  font-size: 18px;
+  font-weight: 300;
+}
 @media (max-width: 700px) {
   .btn-wrapper {
     position: absolute;
@@ -96,7 +105,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
-  .title {
+  .title-home {
     margin: 0 auto;
     text-align: center;
   }
