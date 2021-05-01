@@ -60,7 +60,6 @@ export default {
   color: #353535;
   font-size: 18px;
   font-weight: 300;
-  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
 }
 .btn {
   display: flex;
