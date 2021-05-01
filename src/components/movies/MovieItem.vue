@@ -72,7 +72,8 @@ export default {
         return;
       }
 
-      const list = this.$store.getters["wishlist/getWishlistMovies"];
+      const list = this.$store.getters["wishlist/getWishListForPage"];
+
       if (!list.find((el) => el.id === this.id)) {
         this.$store.dispatch("wishlist/addToWhishlist", {
           id: this.id,

@@ -21,7 +21,9 @@
 import MovieItem from "./../components/movies/MovieItem";
 export default {
   components: { MovieItem },
-
+  created() {
+    this.$store.dispatch("wishlist/getAllWishlist");
+  },
   computed: {
     localMovies() {
       return this.$store.getters["wishlist/getWishListForPage"];

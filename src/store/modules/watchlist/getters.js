@@ -9,9 +9,6 @@ export default {
   },
 
   getWishListForPage(state) {
-    if (JSON.parse(localStorage.getItem("movies"))) {
-      state.movieList = JSON.parse(localStorage.getItem("movies"));
-    }
     return state.movieList;
   },
 };

@@ -1,23 +1,20 @@
 "use strict";
 
-function saveToLS(list) {
-  const parsed = JSON.stringify(list);
-  localStorage.setItem("movies", parsed);
-}
-
 export default {
+  allWishlistMovies(state, payload) {
+    state.movieList = payload;
+  },
+
   addToWhishlist(state, payload) {
     const id = payload.id;
-    const alreadyIn = state.moviesLocal.find((mov) => mov.id === id);
+    console.log(state.movieList);
+
+    const alreadyIn = state.movieList.find((mov) => mov.id === id);
     if (alreadyIn) return;
-    state.moviesLocal.unshift(payload);
-    saveToLS(state.moviesLocal);
+    state.movieList.unshift(payload);
   },
 
   deleteFromWhishlist(state, payload) {
-    state.moviesLocal = state.moviesLocal.filter((mov) => mov.id !== payload);
-    state.movieList = state.moviesLocal;
-
-    saveToLS(state.moviesLocal);
+    state.movieList = state.movieList.filter((mov) => mov.id !== payload);
   },
 };

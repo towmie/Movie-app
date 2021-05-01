@@ -26,10 +26,13 @@
 import WishListWidgetItem from "./WishListWidgetItem";
 export default {
   components: { WishListWidgetItem },
+  // created() {
+  //   this.$store.dispatch("wishlist/getAllWishlist");
+  // },
 
   computed: {
     localMovies() {
-      return this.$store.getters["wishlist/getWishlistMovies"];
+      return this.$store.getters["wishlist/getWishListForPage"];
     },
     isNotEmpty() {
       if (this.localMovies && this.localMovies.length > 0) {
