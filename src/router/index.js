@@ -23,7 +23,8 @@ const router = createRouter({
       component: LoginSignupPage,
       name: "auth",
       children: [
-        { path: "/auth", components: { login: Login, signup: SignUp } },
+        { path: "/login", component: Login, name: "login" },
+        { path: "/signup", component: SignUp, name: "signup" },
       ],
     },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
