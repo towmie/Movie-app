@@ -1,6 +1,7 @@
 <template>
   <div class="info">
-    <form @submit.prevent="submitNewData">
+    <base-spinner v-if="isLoading"></base-spinner>
+    <form @submit.prevent="submitNewData" v-if="!isLoading">
       <button class="edit" @click="toggleEditMode"></button>
       <div class="item">
         <div>
@@ -27,7 +28,7 @@
             class="edit-input"
             type="text"
             v-else
-            v-model="newLastName"
+            v-model="lastName"
             placeholder="Enter Last Name"
           />
         </div>
@@ -55,8 +56,10 @@
 
 <script>
 export default {
-  created() {
-    this.$store.dispatch("profile/setUserInfo");
+  async created() {
+    this.isLoading = true;
+    await this.$store.dispatch("profile/setUserInfo");
+    this.isLoading = false;
   },
   data() {
     return {
@@ -66,6 +69,7 @@ export default {
       newPass: "",
       changePassMode: false,
       editMode: false,
+      isLoading: false,
     };
   },
   methods: {

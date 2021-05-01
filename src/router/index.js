@@ -18,15 +18,17 @@ const router = createRouter({
     { path: "/wishlist", component: WhishList, name: "wishlist" },
     { path: "/profile", component: Profile, name: "profile" },
     { path: "/profile", component: Profile, name: "profile" },
-    {
-      path: "/auth",
-      component: LoginSignupPage,
-      name: "auth",
-      children: [
-        { path: "/login", component: Login, name: "login" },
-        { path: "/signup", component: SignUp, name: "signup" },
-      ],
-    },
+    { path: "/login", component: Login, name: "login" },
+    { path: "/signup", component: SignUp, name: "signup" },
+    // {
+    //   path: "/auth",
+    //   component: LoginSignupPage,
+    //   name: "auth",
+    //   children: [
+    //     { path: "/login", component: Login, name: "login" },
+
+    //   ],
+    // },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
       path: "/details/:movieId",

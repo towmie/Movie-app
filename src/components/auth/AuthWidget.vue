@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div v-if="!isLoggedIn" class="auth">
-      <router-link to="/auth" class="login">Login</router-link>
-      <router-link to="/auth" class="signup">Sign Up</router-link>
+      <router-link to="/login" class="login">Login</router-link>
+      <router-link to="/signup" class="signup">Sign Up</router-link>
     </div>
     <router-link v-else to="/" @click="logout" class="logout"
       >Log Out</router-link

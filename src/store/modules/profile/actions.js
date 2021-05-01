@@ -15,7 +15,10 @@ export default {
     );
 
     if (!response.ok) {
-      console.log("error");
+      if (!response.ok) {
+        const error = new Error(response);
+        throw error;
+      }
     }
 
     const data = await response.json();
@@ -64,7 +67,8 @@ export default {
       }
     );
     if (!response.ok) {
-      console.log("error");
+      const error = "fasle";
+      throw error;
     }
     const data = await response.json();
 

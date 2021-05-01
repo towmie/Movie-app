@@ -10,7 +10,6 @@
           SignUp
         </button>
       </div>
-
       <login v-if="loginOpened"></login>
       <sign-up v-else></sign-up>
     </base-form>

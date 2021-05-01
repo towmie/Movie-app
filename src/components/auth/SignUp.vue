@@ -1,40 +1,58 @@
 <template>
-  <form @submit.prevent="signUp" class="box">
-    <input
-      type="text"
-      placeholder="First Name"
-      class="first"
-      v-model.trim="firstName"
-      required
-    />
-    <input
-      type="text"
-      placeholder="Last Name"
-      class="last"
-      v-model.trim="lastName"
-      required
-    />
-    <input
-      type="email"
-      placeholder="E-mail"
-      class="username"
-      v-model.trim="email"
-      required
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      class="username"
-      v-model.trim="password"
-      required
-    />
-    <textarea
-      id=""
-      placeholder="Description"
-      v-model.trim="description"
-    ></textarea>
-    <button @submit.prevent="signUp" type="submit">Sign Up</button>
-  </form>
+  <div class="bg">
+    <base-form>
+      <form @submit.prevent="signUp" class="box">
+        <p>
+          Create a new account or
+          <router-link class="login" to="/login">login</router-link>
+        </p>
+        <input
+          type="text"
+          placeholder="First Name"
+          class="first"
+          v-model.trim="firstName"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          class="last"
+          v-model.trim="lastName"
+          required
+        />
+        <input
+          type="email"
+          placeholder="E-mail"
+          class="username"
+          v-model.trim="email"
+          required
+        />
+        <p v-if="wrongemail" class="">Enter correct email</p>
+        <input
+          type="password"
+          placeholder="Password"
+          class="username"
+          v-model.trim="password"
+          required
+        />
+        <p v-if="wrongpass" class="">Enter at least 6 symbols</p>
+        <textarea
+          id=""
+          placeholder="Description"
+          v-model.trim="description"
+        ></textarea>
+        <p class="error" v-if="error">Check if all fields are correct</p>
+        <button @submit.prevent="signUp" type="submit" class="submit">
+          Sign Up
+        </button>
+        <span
+          >*Please note, you can enter any email which looks like normal e-mail
+          and your password should be at least 6 symbols<br />(for example:
+          test@test.com, 123456)</span
+        >
+      </form>
+    </base-form>
+  </div>
 </template>
 
 <script>
@@ -46,40 +64,78 @@ export default {
       email: "",
       password: "",
       description: "",
+      error: null,
+      wrongemail: false,
+      wrongpass: false,
     };
   },
   methods: {
     async signUp() {
-      const newUser = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        description: this.description,
-        password: this.password,
-      };
+      try {
+        const newUser = {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          description: this.description,
+          password: this.password,
+        };
 
-      await this.$store.dispatch("profile/createUser", newUser);
-      await this.$store.dispatch("profile/addUserInfo", newUser);
-      this.$router.replace("/");
+        await this.$store.dispatch("profile/createUser", newUser);
+        await this.$store.dispatch("profile/addUserInfo", newUser);
+        this.$router.replace("/");
 
-      this.firstName = "";
-      this.lastName = "";
-      this.email = "";
-      this.password = "";
-      this.description = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.email = "";
+        this.password = "";
+        this.description = "";
+      } catch (error) {
+        return (this.error = true);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
+.submit {
+  margin-bottom: 15px;
+}
+.error {
+  color: #e71c60;
+}
+span {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 10px;
+  color: rgb(109, 109, 109);
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login {
+  color: #e71c60;
+  text-decoration: underline;
+}
+.bg {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+.box {
+  margin-top: 20%;
+}
 input {
   outline: none;
   background-color: rgb(240, 239, 239);
   border: 1px solid rgb(240, 239, 239);
   padding: 10px 15px;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-right: 2px;
 }
 input:focus {

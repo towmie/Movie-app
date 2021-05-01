@@ -31,23 +31,22 @@
         <li class="menu__item">
           <category-list></category-list>
         </li>
-        <li class="menu__item profile-bottom">
+        <!-- <li class="menu__item profile-bottom">
           <menu-profile></menu-profile>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import MenuProfile from "./../profile/MenuProfile";
+// import MenuProfile from "./../profile/MenuProfile";
 import CategoryList from "./CategoryList";
 import SearchItem from "./widgets/SearchItem.vue";
 export default {
   components: {
     CategoryList,
     SearchItem,
-    MenuProfile,
   },
   data() {
     return {

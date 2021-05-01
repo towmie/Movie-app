@@ -18,6 +18,7 @@ export default {
   addUserInfo(state, payload) {
     state.userInfo = payload;
   },
+
   logout(state) {
     state.token = null;
     state.userId = null;

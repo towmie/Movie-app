@@ -9,14 +9,23 @@
 
 <script>
 export default {
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+    };
+  },
   async created() {
     await this.$store.dispatch("profile/setUserInfo");
+    this.firstName = this.$store.getters["profile/getUserFirstName"];
+    this.lasttName = this.$store.getters["profile/getUserLastName"];
   },
   computed: {
     fullName() {
-      const firstName = this.$store.getters["profile/getUserFirstName"];
-      const lasttName = this.$store.getters["profile/getUserLastName"];
-      return `${firstName} ${lasttName}`;
+      // const firstName = this.$store.getters["profile/getUserFirstName"];
+      // const lasttName = this.$store.getters["profile/getUserLastName"];
+      // if (this.firstName && this.lasttName) return;
+      return `${this.firstName} ${this.lasttName}`;
     },
     profileImg() {
       return "./../../assets/profile.jpg";

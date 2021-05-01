@@ -7,8 +7,6 @@ export default {
 
   addToWhishlist(state, payload) {
     const id = payload.id;
-    console.log(state.movieList);
-
     const alreadyIn = state.movieList.find((mov) => mov.id === id);
     if (alreadyIn) return;
     state.movieList.unshift(payload);
