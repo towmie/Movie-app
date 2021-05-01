@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
-    <base-form>
-      <form @submit.prevent="signUp" class="box">
+    <base-form class="box">
+      <form @submit.prevent="signUp">
         <p>
           Create a new account or
           <router-link class="login" to="/login">login</router-link>

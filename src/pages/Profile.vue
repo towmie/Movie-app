@@ -2,20 +2,20 @@
   <div class="profile">
     <div class="header">Profile Info</div>
     <div class="main">
-      <profile-page-img class="img"></profile-page-img>
       <profile-page-data class="data"></profile-page-data>
     </div>
   </div>
 </template>
 
 <script>
-import ProfilePageImg from "./../components/profile/ProfilePageImg";
 import ProfilePageData from "./../components/profile/ProfilePageData";
 export default {
-  components: { ProfilePageImg, ProfilePageData },
+  components: { ProfilePageData },
 };
 </script>
 <style scoped>
+.profile {
+}
 .header {
   display: block;
   padding: 15px;
@@ -34,6 +34,7 @@ export default {
 }
 .main {
   display: flex;
+  justify-content: center;
   padding: 20px;
   margin-top: 30px;
 }

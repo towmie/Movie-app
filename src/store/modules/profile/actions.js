@@ -33,25 +33,20 @@ export default {
   async addUserInfo(context, payload) {
     if (!localStorage.getItem("data")) return;
 
-    const userId = context.rootGetters["profile/userId"];
-    const token = context.rootGetters["profile/token"];
-    const infoObj = {
-      firstName: payload.firstName,
-      lastName: payload.lastName,
-      description: payload.description,
-    };
+    const lsData = JSON.parse(localStorage.getItem("data"));
+    const { userId, token } = lsData;
     const response = await fetch(
-      `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`,
+      `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}/info.json?auth=${token}`,
       {
         method: "PUT",
-        body: JSON.stringify(infoObj),
+        body: JSON.stringify(payload),
       }
     );
 
     if (!response.ok) {
       console.log("error");
     }
-    context.commit("addUserInfo", infoObj);
+    context.commit("addUserInfo", payload);
   },
 
   async login(context, payload) {
@@ -81,11 +76,10 @@ export default {
 
   async setUserInfo(context) {
     if (!localStorage.getItem("data")) return;
-
     const lsData = JSON.parse(localStorage.getItem("data"));
     const { userId, token } = lsData;
     const response = await fetch(
-      `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`
+      `https://movie-app-d7512-default-rtdb.firebaseio.com/users/${userId}/info.json?auth=${token}`
     );
     const data = await response.json();
 

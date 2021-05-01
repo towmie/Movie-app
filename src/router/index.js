@@ -6,7 +6,6 @@ import WhishList from "./../pages/WhishList";
 import SearchPage from "./../pages/SearchPage";
 import MovieDetails from "./../pages/MovieDetails";
 import CategoryPage from "./../pages/CategoryPage";
-import LoginSignupPage from "./../pages/LoginSignupPage";
 import Login from "./../components/auth/Login";
 import SignUp from "./../components/auth/SignUp";
 
@@ -20,15 +19,7 @@ const router = createRouter({
     { path: "/profile", component: Profile, name: "profile" },
     { path: "/login", component: Login, name: "login" },
     { path: "/signup", component: SignUp, name: "signup" },
-    // {
-    //   path: "/auth",
-    //   component: LoginSignupPage,
-    //   name: "auth",
-    //   children: [
-    //     { path: "/login", component: Login, name: "login" },
 
-    //   ],
-    // },
     { path: "/category/:cat", component: CategoryPage, name: "category" },
     {
       path: "/details/:movieId",

@@ -61,9 +61,7 @@ p {
   color: #e71c60;
   text-decoration: underline;
 }
-.form {
-  margin-top: 20%;
-}
+
 input {
   outline: none;
   background-color: rgb(240, 239, 239);
@@ -90,6 +88,9 @@ button {
   padding: 10px 10px;
   width: 100%;
   border-radius: 10px;
+}
+.form {
+  margin-top: 20%;
 }
 .bg {
   display: flex;
