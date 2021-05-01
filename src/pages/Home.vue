@@ -53,12 +53,14 @@ export default {
 
 <style scoped>
 .title {
+  display: block;
   padding: 15px;
   margin-top: 16px;
   padding-bottom: 26px;
   color: #353535;
   font-size: 18px;
   font-weight: 300;
+  border-bottom: 1px solid rgba(53, 53, 53, 0.3);
 }
 .btn {
   display: flex;
