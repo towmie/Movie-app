@@ -19,7 +19,6 @@ const router = createRouter({
       path: "/wishlist",
       component: WhishList,
       name: "wishlist",
-      meta: { isLoggedIn: true },
     },
     {
       path: "/profile",
