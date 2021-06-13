@@ -3,6 +3,7 @@
     <router-link to="/profile">
       <img src="./../../assets/profile.jpg" alt="" />
     </router-link>
+    <div></div>
     <router-link class="text" to="/profile">{{ fullName }}</router-link>
   </div>
 </template>
